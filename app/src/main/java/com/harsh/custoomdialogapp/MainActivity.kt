@@ -2,6 +2,7 @@ package com.harsh.custoomdialogapp
 
 import android.app.Dialog
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
                         editText?.error = resources.getString(R.string.enter)
                     } else {
                         binding?.name?.setText(editText?.text?.toString())
+                        getWindow()?.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.MATCH_PARENT)
                         this.dismiss()
                     }
                 }
