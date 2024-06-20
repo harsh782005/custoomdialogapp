@@ -2,6 +2,7 @@ package com.harsh.custoomdialogapp
 
 import android.app.Dialog
 import android.os.Bundle
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
@@ -33,12 +34,12 @@ class MainActivity : AppCompatActivity() {
                 val editText = this.findViewById<EditText>(R.id.edittext)
                 val btn1 = this.findViewById<Button>(R.id.btn1)
                 val btn2 = this.findViewById<Button>(R.id.btn2)
+                getWindow()?.setLayout(MATCH_PARENT,MATCH_PARENT)
                 btn1.setOnClickListener {
                     if (editText?.text?.toString().isNullOrEmpty()) {
                         editText?.error = resources.getString(R.string.enter)
                     } else {
                         binding?.name?.setText(editText?.text?.toString())
-                        getWindow()?.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.MATCH_PARENT)
                         this.dismiss()
                     }
                 }
